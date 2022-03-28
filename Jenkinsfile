@@ -36,9 +36,9 @@ pipeline {
     stage('Pushing to docker') {
      steps{
          script {
-                 This step should not normally be used in your script. Consult the inline help for details.
+                 // This step should not normally be used in your script. Consult the inline help for details.
                  withDockerRegistry(credentialsId: 'e051c2f9-f61a-409b-a73e-2031c8d2c586', url: 'https://hub.docker.com/repository/docker/harsha2018/simplepush') {
-    some block
+    //some block
              } 
            }
         }
