@@ -1,10 +1,6 @@
 pipeline {
     agent any
-    tools {
-        maven "maven3"
-        jdk "jdk11"
-    }
-        stages {
+    stages {
         stage('git repo & clean') {
             steps {
                 
@@ -17,20 +13,8 @@ pipeline {
                 sh "mvn install clean install"
             }
         }
-	stage('Initialize'){
-            steps{
-                echo "PATH = ${M2_HOME}/bin:${PATH}"
-                echo "M2_HOME = /opt/maven"
-            }
-        }
-	stage('Build') {
-            steps {
-                dir("/var/lib/jenkins/workspace/New_demo/my-app") {
-                sh 'mvn -B -DskipTests clean package'
-                }
-            
-            }
-        }
+	
+	
         
          // Building Docker images
     stage('Building image') {
